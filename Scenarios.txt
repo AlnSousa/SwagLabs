@@ -1,0 +1,35 @@
+Scenario 1: Happy Login
+Given I'm on the home page
+When I login with the user “standard_user” and the password “secret_sauce”
+And I click on the Login button
+Then I should be redirected to the product page
+
+Scenario 2: Empty User
+Given I'm on the home page
+When I login with the user field empty and the password “secret_sauce”
+ And I click on the Login button
+Then I should be redirected to the product page
+
+Scenario 3: Empty password
+Given I'm on the home page
+When I login with the user “standard_user” and the password field empty 
+ And I click on the Login button
+Then I should be redirected to the product page
+
+Scenario 4: Wrong Password
+Given I'm on the home page
+When I login with the user “standard_user” and the password “secret_sau”
+And I click on the Login button
+Then I should see message "Epic sadface: Username and password do not match any user in this service"
+
+Scenario 5: Blocked user
+Given I'm on the home page
+When I login with the user “locked_out_user” and the password “secret_sauce”
+And I click on the Login button
+Then I should see the message "Epic sadface: Sorry, this user has been locked out."
+
+Scenario 6: non-existent user
+Given I'm on the home page
+When I login with the user “batman” and the password “secret_sauce”
+And I click on the Login button
+Then I should see message "Epic sadface: Username and password do not match any user in this service"
