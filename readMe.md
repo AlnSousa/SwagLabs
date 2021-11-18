@@ -1,4 +1,4 @@
-## installing
+## Installing
 
 `bundle install`
 
